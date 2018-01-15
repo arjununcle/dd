@@ -1,6 +1,6 @@
 .ddpanel .ddpanelcontent{ /*CSS for "content" DIV of Drop Down Panel*/
-color: white;
-background: black; /*background of Drop Down Panel*/
+color: blue;
+background: white; /*background of Drop Down Panel*/
 /*Do NOT add any "padding" or "margin" properties here! Any padding/margin should be added to your content's container within this DIV instead */
 }
 
@@ -12,7 +12,7 @@ font: normal 12px Arial;
 .ddpanel .ddpaneltab a{ /*"toggle" tab related CSS*/
 float: right;
 color: white;
-background: black url(toggleleft.gif) no-repeat left bottom; /*background of toggle tab*/
+background: blue url(toggleleft.gif) no-repeat left bottom; /*background of toggle tab*/
 text-decoration: none;
 letter-spacing: 1px;
 }
@@ -31,7 +31,7 @@ margin-left: 5px;
 }
 
 .ddpanel .ddpaneltab a:hover{ /*"toggle" tab related CSS*/
-background-color: navy; /*background of toggle tab onMouseover*/
+background-color: red; /*background of toggle tab onMouseover*/
 }
 
 .ddpanel .ddpaneltab a:active, .ddpanel .ddpaneltab a:focus{ /*"toggle" tab related CSS*/
