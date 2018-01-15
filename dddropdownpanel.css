@@ -1,6 +1,6 @@
 .ddpanel .ddpanelcontent{ /*CSS for "content" DIV of Drop Down Panel*/
-color: blue;
-background: white; /*background of Drop Down Panel*/
+color: white;
+background: blue; /*background of Drop Down Panel*/
 /*Do NOT add any "padding" or "margin" properties here! Any padding/margin should be added to your content's container within this DIV instead */
 }
 
