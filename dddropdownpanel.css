@@ -7,8 +7,6 @@ background: blue; /*background of Drop Down Panel*/
 .ddpanel .ddpaneltab{ /*CSS for "toggle" tab DIV of Drop Down Panel*/
 margin-right: 20px;
 font: normal 12px Arial;
-    width: 600px;
-  max-width: 100%;
 }
 
 .ddpanel .ddpaneltab a{ /*"toggle" tab related CSS*/
