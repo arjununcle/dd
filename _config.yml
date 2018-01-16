@@ -6,3 +6,6 @@ collections:
     title: doodles
     output: true
 permalink: pretty
+exclude:
+  - Gemfile
+  - Gemfile.lock
