@@ -1,11 +1,6 @@
 ---
 layout: page
 ---
-<meta property="og:title" content="Arjun Ram Srivatsa"/>
-<meta property="og:image" content="http://arjunsrivatsa.com/arjun-wave.gif"/>
-<meta property="og:site_name" content="It's Arjun's Bigtime Web Portal, Daddio!"/>
-<meta property="og:description" content="Hey! I'm Arjun Srivatsa and this is my website. I'm a journalist, designer, and all around goofball."/>
-	
 <style>
   html,
   body {
@@ -30,16 +25,22 @@ layout: page
     border: solid 1px #AAA;
     cursor: pointer;
   }
+
   button:hover {
     box-shadow: 0.5em 0.5em 1em rgba(1, 1, 1, 0.3);
     transform: scale(1.4) rotate(3deg) translateY(-0.2em);
   }
 
-  a {
+  button:active {
+    color: inherit;
+    transform: scale(1.4) rotate(1deg) translateY(-0.2em);
+  }
+
+  .header a {
     color: yellow;
   }
 
-  a:hover {
+  .header a:hover {
     color: yellow;
     text-decoration: underline;
   }
@@ -92,7 +93,7 @@ layout: page
 
 </script>
 
-<div id="mypanel" class="ddpanel">
+<div id="mypanel" class="header ddpanel">
   <div id="mypanelcontent" class="ddpanelcontent">
     <div style="padding:30px">
       <p>
