@@ -49,7 +49,6 @@ var ids = [
   "BXBOEYVldp0",
   "BXblx6CFoio",
   "BXgnJv8lX2n",
-  "
 ];
 
 var buttonText = [
