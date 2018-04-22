@@ -1,56 +1,3 @@
-var ids = [
-  "BWODrkwlcMp",
-  "BVhyPtMFBnk",
-  "BUUncekF_dx",
-  "BOz8rEsAL1F",
-  "BOIdorrg3U-",
-  "BVp8nlglRKE",
-  "BS9J1HsFP-n",
-  "BUXyzV3F1PE",
-  "BSRScP0DOoi",
-  "BSTzxm_DAJX",
-  "BNhjAN1j4P8",
-  "BUNSRR9Fysh",
-  "BMzXdzKg5H-",
-  "BM4WUX1Duu9",
-  "BNcUuRUDrd6",
-  "BOppiergic6",
-  "BO2cWR_Ahch",
-  "BO5ILPMAlz7",
-  "BPaeJ_9gNQS",
-  "BPftKwzAF5V",
-  "BP5jB1LAPB0",
-  "BQJcxYqgV0f",
-  "BQL51ZGAunj",
-  "BRbzbJ7j--E",
-  "BRqxBjcDTJL",
-  "BR3Z-euDrFW",
-  "BR9YtzvDm9j",
-  "BSbftFnjBcc",
-  "BSgzRClDfU-",
-  "BTAIh8gFEd9",
-  "BTXOwrNFA55",
-  "BTb9r0sF6Ad",
-  "BTxIcS7FJjX",
-  "BULCqaVlPs1",
-  "BUagPpClulr",
-  "BUcwHDVlrTJ",
-  "BUe7J66lcHx",
-  "BUhmILOl2fT",
-  "BUkpEPilcF6",
-  "BUxG5f8FPtX",
-  "BVK1fa5FQ63",
-  "BVssHvPl8xa",
-  "BV78fi1lmfo",
-  "BWBWjFhlCuW",
-  "BWLhXvAFHVA",
-  "BWQPZE0lzBM",
-  "BWYVwRclin1",
-  "BXBOEYVldp0",
-  "BXblx6CFoio",
-  "BXgnJv8lX2n",
-];
-
 var buttonText = [
   "another doodle, daddio",
   "more",
@@ -61,15 +8,39 @@ var buttonText = [
   "alright, one more"
 ];
 
-var iterator = makeIterator(shuffle(ids));
-
 var button = document.querySelector("[data-onclick]");
+var instagramContainer = document.querySelector("[data-controller=instagram]");
 
-var instagramContainer = document.querySelector("[data-instagram-container]");
+var items = Array.prototype.slice
+  .call(instagramContainer.querySelectorAll("[data-instagram-id]"))
+  .map(function(item) {
+    if (!item.dataset.instagramId) return null;
+
+    return {
+      id: item.dataset.instagramId,
+      shuffle: !("force" in item.dataset)
+    };
+  })
+  .filter(identity);
+
+var ids = items
+  .filter(function(item) {
+    return !item.shuffle;
+  })
+  .concat(
+    shuffle(
+      items.filter(function(item) {
+        return item.shuffle;
+      })
+    )
+  )
+  .map(function(item) {
+    return item.id;
+  });
+
+var iterator = makeIterator(ids);
 
 button.addEventListener("click", function(event) {
-  var action = event.target.dataset.onclick;
-
   var nextDoodleId = iterator.next();
   refreshDoodle(instagramContainer, nextDoodleId);
   button.innerText = randomMember(buttonText);
@@ -83,15 +54,15 @@ function makeIterator(items) {
 
   return {
     next: function() {
-      index++;
       if (index >= total) index = 0;
-      return items[index];
+      var item = items[index];
+      index++;
+      return item;
     }
   };
 }
 
 function refreshDoodle(element, doodleId) {
-  console.log(doodleId);
   if (!element) return;
 
   element.innerHTML = "";
@@ -101,6 +72,7 @@ function refreshDoodle(element, doodleId) {
 }
 
 function createInstagramEmbedElement(postId) {
+  console.log("creating instagram element", postId);
   var instagramElement = document.createElement("blockquote");
 
   instagramElement.classList.add("instagram-media");
@@ -145,4 +117,8 @@ function simulateClick(element) {
 
 function randomMember(list) {
   return list[Math.floor(Math.random() * list.length)];
+}
+
+function identity(item) {
+  return item;
 }
