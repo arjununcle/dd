@@ -2,6 +2,12 @@ html,
 body {
   height: 100%;
 }
+
+body {
+  font-family: "Playfair Display", "Times New Roman", serif;
+  background-color: #EEEBDD;
+}
+
 img {
   display: inline-block;
   max-width: 100%;
@@ -10,6 +16,11 @@ h1 {
   text-align: center;
   margin-top: 40px;
 }
+
+h1, h2 {
+  font-style: italic;
+}
+
 button {
   display: inline-block;
   transform: rotate(1deg);
