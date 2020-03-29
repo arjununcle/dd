@@ -5,20 +5,34 @@ body {
 
 body {
   font-family: "Playfair Display", "Times New Roman", serif;
+  font-size: 200%;
   background-color: #EEEBDD;
+  padding: 1em;
+}
+
+body::-webkit-scrollbar {
+  width: 1em;
+}
+body::-webkit-scrollbar-track {
+}
+body::-webkit-scrollbar-thumb {
+  background-color: rgb(50, 187, 44);
+  border-radius: 15px;
+  margin: 3px;
 }
 
 img {
   display: inline-block;
   max-width: 100%;
 }
+
 h1 {
-  text-align: center;
   margin-top: 40px;
 }
 
 h1, h2 {
   font-style: italic;
+  font-size: 100%;
 }
 
 button {
@@ -90,4 +104,28 @@ button:active {
 main {
   max-width: 40em;
   margin: 1.618em;
+  border: solid 1px black;
+  padding: 2.618em;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: rgba(256, 256, 256, 0.5);
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+p > img,
+li img {
+  height: 1em;
+  vertical-align: baseline;
+  margin-left: 0.2em;
+  margin-right: 0.2em;
+}
+
+p > img:hover,
+li img:hover {
+  height: 100%;
+  max-height: 6em;
 }
