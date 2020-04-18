@@ -2,8 +2,9 @@ var application = Stimulus.Application.start();
 
 class TimeController extends Stimulus.Controller {
   connect() {
-    const now = new Date()
+    const now = new Date();
     const then = new Date(this.data.get("date"));
+
     this.update(now.getTime() - then.getTime());
   }
 
@@ -15,11 +16,54 @@ class TimeController extends Stimulus.Controller {
     const month = Math.round(day / 30);
     const year = Math.round(month / 12);
 
-    console.log({ year, month, day, hr, min, sec });
+    const duration = [];
 
-    this.element.innerHTML =
-      "30 years 9 months 9 days 12 hours 30 minutes and 50 seconds";
+    if (year > 0) {
+      duration.push(year + " " + plural(year, "year"));
+    }
+
+    const months = month % 12;
+    if (months > 0) {
+      duration.push(months + " " + plural(months, "month"));
+    }
+
+    const days = day % 31;
+    if (days > 0) {
+      duration.push(days + " " + plural(days, "day"));
+    }
+
+    const hours = hr % 24;
+    if (hours > 0) {
+      duration.push(hours + " " + plural(hours, "hour"));
+    }
+
+    const minutes = min % 60;
+    if (minutes > 0) {
+      duration.push(minutes + " " + plural(minutes, "minute"));
+    }
+
+    const seconds = sec % 60;
+    if (seconds > 0) {
+      duration.push(seconds + " " + plural(seconds, "second"));
+    }
+
+    this.element.innerHTML = humanize(duration);
   }
+}
+
+function plural(count, word) {
+  return word + (count === 1 ? "" : "s");
+}
+
+function humanize(list) {
+  if (list.length === 1) {
+    return list[0];
+  }
+
+  return [
+    list.slice(0, list.length - 1).join(", "),
+    list[list.length - 1]
+  ].join(" and ");
 }
 
 application.register("time", TimeController);
