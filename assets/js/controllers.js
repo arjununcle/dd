@@ -17,7 +17,7 @@ class TimeController extends Stimulus.Controller {
       return;
     }
 
-    let date = new Date(date);
+    date = new Date(date);
 
     if (date === "Invalid Date") {
       return;
@@ -28,3 +28,20 @@ class TimeController extends Stimulus.Controller {
 }
 
 application.register("time", TimeController);
+
+class HoverImageController extends Stimulus.Controller {
+  connect() {
+    this.element.addEventListener("mouseenter", this.handleMouseEnter.bind(this));
+    this.element.addEventListener("mouseleave", this.handleMouseLeave.bind(this));
+  }
+
+  handleMouseEnter() {
+    console.log("hello", this.element.src);
+  }
+
+  handleMouseLeave() {
+    console.log("goodbye", this.element.src);
+  }
+}
+
+application.register("hover-image", HoverImageController)
