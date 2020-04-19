@@ -30,18 +30,38 @@ class TimeController extends Stimulus.Controller {
 application.register("time", TimeController);
 
 class HoverImageController extends Stimulus.Controller {
+  initialize() {
+    this.handleMouseEnter = this.handleMouseEnter.bind(this);
+    this.handleMouseMove = this.handleMouseMove.bind(this);
+    this.handleMouseLeave = this.handleMouseLeave.bind(this);
+  }
+
   connect() {
-    this.element.addEventListener("mouseenter", this.handleMouseEnter.bind(this));
-    this.element.addEventListener("mouseleave", this.handleMouseLeave.bind(this));
+    this.element.addEventListener("mouseenter", this.handleMouseEnter);
+    this.element.addEventListener("mousemove", this.handleMouseMove);
+    this.element.addEventListener("mouseleave", this.handleMouseLeave);
   }
 
   handleMouseEnter() {
-    console.log("hello", this.element.src);
+    if (!this.hoverElement) {
+      this.hoverElement = document.createElement("img");
+      this.hoverElement.style.position = "fixed";
+      this.hoverElement.style.top = 0;
+      this.hoverElement.style.left = 0;
+      this.hoverElement.style.pointerEvents = "none";
+      this.hoverElement.src = this.element.src;
+    }
+    document.body.appendChild(this.hoverElement);
+  }
+
+  handleMouseMove(event) {
+    this.hoverElement.style.top = event.clientY + 'px';
+    this.hoverElement.style.left = event.clientX - (this.hoverElement.width / 2) + 'px';
   }
 
   handleMouseLeave() {
-    console.log("goodbye", this.element.src);
+    document.body.removeChild(this.hoverElement);
   }
 }
 
-application.register("hover-image", HoverImageController)
+application.register("hover-image", HoverImageController);
