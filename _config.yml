@@ -2,10 +2,16 @@
 title: Daily Doodles
 timezone: UTC
 collections:
+  posts:
+    title: Posts
+    output: true
+  uploads:
+    title: Uploads
+    output: true
   doodles:
     title: doodles
     output: true
 permalink: pretty
 exclude:
-  - Gemfile
-  - Gemfile.lock
+- Gemfile
+- Gemfile.lock
