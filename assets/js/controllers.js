@@ -37,31 +37,65 @@ class HoverImageController extends Stimulus.Controller {
   }
 
   connect() {
-    this.element.addEventListener("mouseenter", this.handleMouseEnter);
+    this.element.addEventListener("mouseenter", this.handleMouseEnter, true);
+    this.element.addEventListener("mouseleave", this.handleMouseLeave, true);
     this.element.addEventListener("mousemove", this.handleMouseMove);
-    this.element.addEventListener("mouseleave", this.handleMouseLeave);
+
+    this.hoverElement = document.createElement("img");
+    this.hoverElement.style.position = "fixed";
+    this.hoverElement.style.top = 0;
+    this.hoverElement.style.left = 0;
+    this.hoverElement.style.maxHeight = "100vh";
+    this.hoverElement.style.pointerEvents = "none";
+
+    this.image = null;
   }
 
-  handleMouseEnter() {
-    if (!this.hoverElement) {
-      this.hoverElement = document.createElement("img");
-      this.hoverElement.style.position = "fixed";
-      this.hoverElement.style.top = 0;
-      this.hoverElement.style.left = 0;
-      this.hoverElement.style.pointerEvents = "none";
-      this.hoverElement.src = this.element.src;
+  disconnect() {
+    this.element.removeEventListener("mouseenter", this.handleMouseEnter);
+    this.element.removeEventListener("mouseleave", this.handleMouseLeave);
+    this.element.removeEventListener("mousemove", this.handleMouseMove);
+  }
+
+  handleMouseEnter(event) {
+    if (event.target.matches("img")) {
+      this.image = event.target;
+      this.hoverElement.src = this.image.src;
+      document.body.appendChild(this.hoverElement);
+      this.size = this.element.getBoundingClientRect();
     }
-    document.body.appendChild(this.hoverElement);
   }
 
   handleMouseMove(event) {
-    this.hoverElement.style.top = event.clientY + 'px';
-    this.hoverElement.style.left = event.clientX - (this.hoverElement.width / 2) + 'px';
+    if (!this.image) {
+      return;
+    }
+
+    const xOffset = clamp(
+      this.size.left,
+      event.clientX - this.hoverElement.width / 2,
+      this.size.right
+    );
+
+    const yOffset = clamp(
+      this.size.top,
+      event.clientY - this.hoverElement.height / 2,
+      this.size.bottom
+    );
+
+    this.hoverElement.style.transform = `translate(${xOffset}px, ${yOffset}px)`;
   }
 
-  handleMouseLeave() {
-    document.body.removeChild(this.hoverElement);
+  handleMouseLeave(event) {
+    if (this.image === event.target) {
+      document.body.removeChild(this.hoverElement);
+      this.image = null;
+    }
   }
+}
+
+function clamp(min, x, max) {
+  return Math.min(max, Math.max(min, x));
 }
 
 application.register("hover-image", HoverImageController);

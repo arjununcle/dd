@@ -26,12 +26,6 @@ img {
   max-width: 100%;
 }
 
-p > img:hover,
- li img:hover {
-   height: 100%;
-   max-height: 6em;
- }
-
 h1 {
   margin-top: 40px;
 }
