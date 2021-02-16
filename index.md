@@ -22,4 +22,4 @@ works:
   image: "/assets/images/vf-ysh.gif"
 ---
 
-Arjun Ram Srivatsa ![Arjun](/assets/images/Self.gif) is a videographer, designer, and animator based in New York City.
+Arjun Ram Srivatsa ![Arjun](/assets/images/Self.gif) is a videographer, designer, and animator based in Brooklyn, NY.
