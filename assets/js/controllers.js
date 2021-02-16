@@ -72,15 +72,16 @@ class HoverImageController extends Stimulus.Controller {
     }
 
     const xOffset = clamp(
-      this.size.left,
+      this.size.left + event.offsetX,
       event.clientX - this.hoverElement.width / 2,
-      this.size.right
+      this.size.right + event.offsetX - this.hoverElement.width
     );
 
     const yOffset = clamp(
-      this.size.top,
+      Math.min(this.size.top, window.scrollY) + event.offsetY,
       event.clientY - this.hoverElement.height / 2,
-      this.size.bottom
+      Math.min(this.size.bottom, window.scrollY + window.innerHeight) +
+        event.offsetY
     );
 
     this.hoverElement.style.transform = `translate(${xOffset}px, ${yOffset}px)`;
