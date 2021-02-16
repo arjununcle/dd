@@ -1,6 +1,5 @@
 ---
 title: Homepage
-layout: homepage
 works:
 - name: Park Slope Food Co-Op, New Yorker, 2019
   url: https://www.instagram.com/tv/B5Fq4oLhe-M/
@@ -20,6 +19,9 @@ works:
 - name: You Said Hope, Vanity Fair, 2020
   url: https://vanityfair.com/article/2020/9/you-said-hope
   image: "/assets/images/vf-ysh.gif"
+layout: homepage
 ---
 
-Arjun Ram Srivatsa ![Arjun](/assets/images/Self.gif) is a videographer, designer, and animator based in Brooklyn, NY.
+Arjun Ram Srivatsa ![Arjun](/assets/images/Self.gif) is a videographer, designer, and animator based in Brooklyn, NY. He is currently a Visual Editor for Condé Nast.
+
+You can find his videos and animations—along with an abundance of selfies—on his [Instagram](https://www.instagram.com/arjununcle/).
