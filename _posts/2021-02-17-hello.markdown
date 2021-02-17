@@ -3,6 +3,4 @@ title: Welcome 2 my blog
 date: 2021-02-17 02:03:00 Z
 ---
 
-Hey pals,
-
-!\[Arjun Waving.gif\](/uploads/Arjun%20Waving.gif =10x10)
+Hey pals
