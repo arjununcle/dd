@@ -101,7 +101,8 @@ button:active {
   }
 }
 
-main {
+main,
+.post {
   max-width: 40em;
   margin: 1.618em;
   border: solid 1px black;
@@ -111,11 +112,8 @@ main {
   background-color: rgba(256, 256, 256, 0.5);
 }
 
-.container {
-  max-width: 40em;
-  padding-bottom: 2.618em;
-  margin-left: auto;
-  margin-right: auto;
+.post {
+  background-color: #DCBCFA;
 }
 
 
