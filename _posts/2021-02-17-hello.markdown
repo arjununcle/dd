@@ -4,3 +4,4 @@ date: 2021-02-17 02:03:00 Z
 ---
 
 Hey pals
+<img style="width: 100%" src="/uploads/coop.jpeg" alt="coop" />
