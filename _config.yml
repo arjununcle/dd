@@ -13,10 +13,10 @@ collections:
     output: true
 defaults:
 - scope:
-    path: ""
-    type: "pages"
+    path: ''
+    type: pages
   values:
-    layout: "page"
+    layout: page
 permalink: pretty
 exclude:
 - Gemfile
