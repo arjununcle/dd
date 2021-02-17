@@ -22,6 +22,6 @@ works:
 layout: homepage
 ---
 
-Arjun Ram Srivatsa ![Arjun](/assets/images/Self.gif) is a videographer, designer, and animator based in Brooklyn, NY. He is currently a Visual Editor for Condé Nast.
+Arjun Ram Srivatsa ![Arjun](/assets/images/Self.gif) is a videographer, designer, and animator based in Brooklyn, NY. He is currently a Visual Editor for Condé Nast. He is also the host of <a href="https://diversityhire.substack.com/">Diversity Hire</a>, a podcast about being "POC" in media.
 
 You can find his videos and animations—along with an abundance of selfies—on his [Instagram](https://www.instagram.com/arjununcle/).
