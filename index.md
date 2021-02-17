@@ -2,7 +2,7 @@
 title: Homepage
 works:
 - name: Park Slope Food Co-Op, New Yorker, 2019
-  url: https://www.instagram.com/tv/B5Fq4oLhe-M/
+  url: http://arjunsrivatsa.biz/park-slope-food-co-op/
   image: "/uploads/coop.jpeg"
 - name: The Best Music of the 2010s, Pitchfork, 2019
   url: https://pitchfork.com/topics/the-best-music-of-the-2010s/
