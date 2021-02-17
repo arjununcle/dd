@@ -11,6 +11,12 @@ collections:
   doodles:
     title: doodles
     output: true
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    value:
+      layout: "page"
 permalink: pretty
 exclude:
 - Gemfile

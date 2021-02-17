@@ -130,11 +130,3 @@ main li img {
   margin-right: 0.2em;
 }
 
-.post {
-  border-top: solid 1px black;
-  margin-top: 2.618em;
-}
-.post:first-child {
-  border-top: none;
-}
-
