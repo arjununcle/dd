@@ -4,5 +4,5 @@ date: 2021-02-17 02:03:00 Z
 ---
 
 Hey pals,
-<p>/<p>
+<p></p>
 <img style="width: 20%" src="/uploads/arjun.gif" alt="hi there" />
