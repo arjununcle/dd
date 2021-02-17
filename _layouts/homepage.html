@@ -14,3 +14,12 @@ layout: default
     </ul>
   {% endif %}
 </main>
+
+<div class="container">
+  {% for post in site.posts %}
+    <div class="post">
+      <h1>{{ post.title }}</h1>
+      {{ post.content }}
+    </div>
+  {% endfor %}
+</div>
